@@ -145,7 +145,7 @@ def video_to_text_prediction_english(video_path):
 
 
 ############################ test video_to_text_prediction_english function ########################
-# print(video_to_text_prediction_english(os.path.join("one_two_three.mp4")))
+# print(video_to_text_prediction_english(os.path.join("i_love_you.mp4")))
 
 
 ################################################## text to video ########################################################################
