@@ -5,3 +5,4 @@ opencv-contrib-python==4.9.0.80
 mediapipe==0.9.0.1
 numpy==1.24.4
 bz2file==0.98
+gunicorn==20.1.0
