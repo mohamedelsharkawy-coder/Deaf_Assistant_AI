@@ -23,9 +23,16 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.5)
 
 ########################### define a function that decompressed the compressed file 
 ########## load my model --> the compressed model
+# def decompress_pickle(file):
+#     data = bz2.BZ2File(file, 'rb')
+#     data = pickle.load(data)
+#     return data
+
+# model = decompress_pickle("compressed_arabic_model.pbz2")
+
 def decompress_pickle(file):
-    data = bz2.BZ2File(file, 'rb')
-    data = pickle.load(data)
+    with bz2.BZ2File(file, 'rb') as f:
+        data = pickle.load(f)
     return data
 
 model = decompress_pickle("compressed_arabic_model.pbz2")
@@ -156,7 +163,7 @@ def video_to_text_prediction_arabic(video_path):
     return " ".join(final_classes)
 
 ############################################################ test video to text funciton 
-# print(video_to_text_prediction_arabic(os.path.join("arabic_test_videos", "one_two_three.mp4")))
+# print(video_to_text_prediction_arabic(os.path.join("one_two_three.mp4")))
 
 
 
@@ -288,4 +295,4 @@ def text_to_video_prediction_arabic(text:str):
         return output_video_path
 
 ################################################### test text to video function 
-print(text_to_video_prediction_arabic("انا اسمي محمد و عندي 22 سنة"))
+# print(text_to_video_prediction_arabic("انا اسمي محمد و عندي 22 سنة"))

@@ -24,9 +24,16 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.5)
 
 ########################### define a function that decompressed the compressed file 
 ########## load my model --> the compressed model
+# def decompress_pickle(file):
+#     data = bz2.BZ2File(file, 'rb')
+#     data = pickle.load(data)
+#     return data
+
+# model = decompress_pickle("compressed_english_model.pbz2")
+
 def decompress_pickle(file):
-    data = bz2.BZ2File(file, 'rb')
-    data = pickle.load(data)
+    with bz2.BZ2File(file, 'rb') as f:
+        data = pickle.load(f)
     return data
 
 model = decompress_pickle("compressed_english_model.pbz2")
@@ -138,7 +145,7 @@ def video_to_text_prediction_english(video_path):
 
 
 ############################ test video_to_text_prediction_english function ########################
-# print(video_to_text_prediction_english(os.path.join("english_test_videos", "i_love_you.mp4")))
+# print(video_to_text_prediction_english(os.path.join("one_two_three.mp4")))
 
 
 ################################################## text to video ########################################################################
