@@ -3,3 +3,4 @@ Gunicorn
 opencv-python
 mediapipe
 bz2file
+scikit-learn
