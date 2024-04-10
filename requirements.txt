@@ -1,5 +1,6 @@
 bz2file==0.98
 Flask==2.0.3
+Werkzeug
 mediapipe==0.9.0.1
 numpy==1.24.4
 opencv_contrib_python==4.9.0.80
