@@ -40,12 +40,12 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.5)
 # model = decompress_pickle("compressed_english_model.pbz2")
 
 ###############################################
-# # load the model as the compressed version 18 mb, not the whole 600mb
-# def load_compressed_model(file_path):
-#     with bz2.open(file_path, 'rb') as f:
-#         return pickle.load(f)
+# load the model as the compressed version 18 mb, not the whole 600mb
+def load_compressed_model(file_path):
+    with bz2.open(file_path, 'rb') as f:
+        return pickle.load(f)
 
-# model = load_compressed_model('compressed_english_model.pbz2')
+model = load_compressed_model('compressed_english_model.pbz2')
 
 ######################## label map dictionary
 index_to_class = {0: 'A', 1: 'About', 2: 'After', 3: 'At', 4: 'B', 5: 'Before', 6: 'Black', 7: 'C', 8: 'Can', 9: 'Choose', 10: 'Coffee', 
