@@ -31,12 +31,21 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.5)
 
 # model = decompress_pickle("compressed_english_model.pbz2")
 
-def decompress_pickle(file):
-    with bz2.BZ2File(file, 'rb') as f:
-        data = pickle.load(f)
-    return data
+################################################
+# def decompress_pickle(file):
+#     with bz2.BZ2File(file, 'rb') as f:
+#         data = pickle.load(f)
+#     return data
 
-model = decompress_pickle("compressed_english_model.pbz2")
+# model = decompress_pickle("compressed_english_model.pbz2")
+
+###############################################
+# load the model as the compressed version 18 mb, not the whole 600mb
+def load_compressed_model(file_path):
+    with bz2.open(file_path, 'rb') as f:
+        return pickle.load(f)
+
+model = load_compressed_model('compressed_english_model.pbz2')
 
 ######################## label map dictionary
 index_to_class = {0: 'A', 1: 'About', 2: 'After', 3: 'At', 4: 'B', 5: 'Before', 6: 'Black', 7: 'C', 8: 'Can', 9: 'Choose', 10: 'Coffee', 
@@ -145,7 +154,7 @@ def video_to_text_prediction_english(video_path):
 
 
 ############################ test video_to_text_prediction_english function ########################
-# print(video_to_text_prediction_english(os.path.join("try.mp4")))
+# print(video_to_text_prediction_english(os.path.join("mohamed.mp4")))
 
 
 ################################################## text to video ########################################################################

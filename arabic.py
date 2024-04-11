@@ -30,12 +30,21 @@ hands = mp_hands.Hands(static_image_mode=True, min_detection_confidence=0.5)
 
 # model = decompress_pickle("compressed_arabic_model.pbz2")
 
-def decompress_pickle(file):
-    with bz2.BZ2File(file, 'rb') as f:
-        data = pickle.load(f)
-    return data
+##########################################
+# def decompress_pickle(file):
+#     with bz2.BZ2File(file, 'rb') as f:
+#         data = pickle.load(f)
+#     return data
 
-model = decompress_pickle("compressed_arabic_model.pbz2")
+# model = decompress_pickle("compressed_arabic_model.pbz2")
+
+#######################################
+# load the model as the compressed version 18 mb, not the whole 600mb
+def load_compressed_model(file_path):
+    with bz2.open(file_path, 'rb') as f:
+        return pickle.load(f)
+
+model = load_compressed_model('compressed_arabic_model.pbz2')
 
 ######################## label map dictionary
 index_to_class_english = {0: 'aeen', 1: 'alef', 2: 'allah', 3: 'bad', 4: 'bank', 5: 'bathroom', 6: 'beh', 7: 'cairo', 8: 'chair', 9: 'child', 
