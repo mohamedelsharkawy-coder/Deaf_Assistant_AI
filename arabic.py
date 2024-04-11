@@ -163,7 +163,7 @@ def video_to_text_prediction_arabic(video_path):
     return " ".join(final_classes)
 
 ############################################################ test video to text funciton 
-# print(video_to_text_prediction_arabic(os.path.join("i_love_you.mp4")))
+# print(video_to_text_prediction_arabic(os.path.join("one_two_three.mp4")))
 
 
 
